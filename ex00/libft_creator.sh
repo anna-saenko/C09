@@ -1,11 +1,6 @@
 #!/bin/sh
 
-SRC_FILES="ft_putchar.c ft_putstr.c ft_strcmp.c ft_strlen.c ft_swap.c"
-
-gcc -Wall -Wextra -Werror -c $SRC_FILES
-
+rm -f libft.a
+find . -name "*.c" -type f -exec gcc -Wall -Werror -Wextra -c {} \;
 ar rc libft.a *.o
-
-ranlib libft.a
-
-rm -f *.o
+find . -name "*.o" -type f -delete
